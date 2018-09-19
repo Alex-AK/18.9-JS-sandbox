@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>JS Test Page</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+</head>
+
+<body class="style">
+  <div class="content" style="text-align: center; margin-top: 50px;">
+    <!--
+      Write a program to calculate the total price of your phone purchase.
+      You will keep purchasing phones (hint: loop!) until you run out of money in your bank account.
+      You'll also buy accessories for each phone as long as your purchase amount is below your mental spending THRESHOLD.
+      After you've calculated your purchase amount, add in the tax, then print out the calculated purchase amount, properly formatted.
+      Finally, check the amount against your bank account balance to see if you can afford it or not.
+      You should set up some constants for the "tax rate," "phone price," "accessory price," and "spending THRESHOLD," as well as a variable for your "bank account balance.""
+      You should define functions for calculating the tax and for formatting the price with a "$" and rounding to two decimal places.
+      Bonus Challenge: Try to incorporate input into this program, perhaps with the prompt(..) covered in "Input" earlier. -->
+
+    <script type="text/javascript">
+      var bank_balance_input =  prompt("What is your current bank balance?");
+      var bank_balance = parseInt (bank_balance_input);
+      var phones_purchased = 0;
+      var accessories_purchased = 0;
+
+      const PHONE = 99.99;
+      const ACCESSORY = 9.99;
+      const TAX_RATE = 0.10; // WA tax rate of 10%
+      const THRESHOLD = 400;
+
+
+      function bankBalance() {
+        document.write ("Your current balance is: $" + bank_balance.toFixed(2) + "<br><br>")
+      }
+
+      function remainingBalance() {
+          document.write("Your remaining balance is: $" + bank_balance.toFixed(2) + "<br><br>");
+      };
+
+      function calculateFinalPrice() {
+        purchase_amount = phones_purchased * PHONE + accessories_purchased * ACCESSORY
+        final = purchase_amount + (purchase_amount * TAX_RATE);
+        document.write ("<b>Total cost: $" + final.toFixed(2) + "</b><br><br>");
+        document.write ("Phones purchased: " + phones_purchased + "<br>");
+        document.write ("Accessories purchased: " + accessories_purchased);
+      }
+
+      bankBalance();
+
+      while (bank_balance > THRESHOLD + PHONE * 2) {
+        bank_balance = bank_balance - PHONE;
+        phones_purchased++
+      }
+
+      document.write("You purchased " + phones_purchased + " phones. <br>");
+      remainingBalance();
+
+      while (phones_purchased > accessories_purchased && bank_balance > THRESHOLD + ACCESSORY * 2) {
+        bank_balance = bank_balance - ACCESSORY;
+        accessories_purchased++
+      }
+
+      document.write("You purchased " + accessories_purchased + " phone cases. <br>");
+
+      remainingBalance();
+
+      calculateFinalPrice();
+
+    </script>
+
+  </div>
+</body>
+
+</html>

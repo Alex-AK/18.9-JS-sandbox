@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>JS Test Page</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+</head>
+
+<body class="style">
+  <div class="content" style="text-align: center; margin-top: 50px;">
+    <script type="text/javascript">
+
+    // random number generator, collects two numbers, then writes one between two inputs.
+    // assignment did not include conditionals, but I added them (found the ifNaN condition on google.)
+
+    // prompt for first number, must be number.
+    var firstNumber = Number(prompt ("Enter a number, then click OK. Note: I will round for you."));
+
+
+    // check if a is number. If yes, prompt next number. If not, write refresh message.
+      if (isNaN(firstNumber) || typeof firstNumber !== "number") {
+        alert("Sorry, that wasn't a number. Please refersh the page and try again.");
+        document.write ("Please refersh the page and try again.");
+      }
+    // prompt for second number, must be number. If not, write refresh message.
+      else {
+        var secondNumber = Number(prompt ("Enter a second number, then click OK."));
+      }
+
+    // check if b is number. If yes, generate number. If not, write message to refresh.
+    if (isNaN(secondNumber) || typeof secondNumber !== "number") {
+      alert("Sorry, that wasn't a number. Please refersh the page and try again.");
+    } else {
+        document.write ("You chose " + Math.round(firstNumber) + " and " + Math.round(secondNumber) + "<br><br>");
+      }
+
+    // figure out random number generator component (I had to watch the answer to get the math component)
+    var randomNumber = (Math.floor(Math.random() * (secondNumber - firstNumber + 1) + firstNumber));
+    var message = "Your random number is " + randomNumber + ".";
+
+    document.write (message);
+
+
+
+// random trials
+
+    // variables
+    //var firstNumber = (Math.floor(Math.random()) * 0 ) + Math.floor(a);
+    //var secondNumber = (Math.floor(Math.random()) * 0 ) + b;
+
+    // this always generates number 1.
+    //  document.write ((Math.floor(Math.random()) * 1 ) + 1);
+
+    // this always generates zero.
+    // Math.floor(Math.random());
+
+
+
+
+
+
+    // do I need these if I'm rounding down?
+    //parseInt (a);
+    //parseInt (b);
+
+
+    </script>
+
+  </div>
+</body>
+
+</html>

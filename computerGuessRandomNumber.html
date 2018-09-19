@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>JS Test Page</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+</head>
+
+<body class="style">
+  <div class="content" style="text-align: center; margin-top: 50px;">
+    <script type="text/javascript">
+
+// generate a random number between 1 and 10000, then have the computer guess it, print attempts at the end.
+
+var upper = 10000;
+var guess;
+var attempts = 0;
+var randomNumber = getRandomNumber (upper);
+
+function getRandomNumber (upper) {
+  var num = Math.floor(Math.random() * upper) + 1;
+  return num;
+}
+
+while (guess !== randomNumber) {
+  guess = getRandomNumber(upper);
+  attempts += 1;
+}
+
+document.write ("<p>The random number was: " + randomNumber + "</p>")
+document.write ("It took the computer " + attempts + " to guess the number.")
+
+
+    </script>
+
+  </div>
+</body>
+
+</html>

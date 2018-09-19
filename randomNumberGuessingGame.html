@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>JS Test Page</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+</head>
+
+<body class="style">
+  <div class="content" style="text-align: center; margin-top: 50px;">
+    <script type="text/javascript">
+
+var randomNumber = Math.floor(Math.random () * 6) + 1;
+var guess = prompt ("I am thinking of a number between 1 and 6. Quess which one.");
+var correctGuess = false;
+
+guess = parseInt(guess);
+
+if (guess === randomNumber) {
+  correctGuess = true;
+}
+
+if ( correctGuess ) {
+  alert ("You guessed right! The number is " + randomNumber + ".");
+} else if (parseInt(guess) < randomNumber) {
+  alert ("Close! I'm thinking of a number greater than " + guess + ".");
+} else if (parseInt(guess) > randomNumber) {
+  alert ("Close! I'm thinking of a number less than " + guess + ".");
+}
+
+var guess2 = prompt ("Enter a second guess.");
+correctGuess2 = false;
+
+guess2 = parseInt(guess2);
+
+if ( guess2 === randomNumber) {
+  correctGuess2 = true;
+}
+
+if ( correctGuess2 ) {
+  alert ("You guessed right! The number is " + randomNumber + ".");
+} else  {
+  alert ("Sorry! I was thinking of the number " + randomNumber + ".");
+}
+
+
+/* ANSWER KEY
+
+It kept only one boolean variable correctGuess and added two more variables guessMore and guessLess.
+
+
+var correctGuess = false;
+var randomNumber = Math.floor(Math.random() * 6 ) + 1;
+var guess = prompt('I am thinking of a number between 1 and 6. What is it?');
+if (parseInt(guess) === randomNumber ) {
+  correctGuess = true;
+} else if ( parseInt(guess) < randomNumber ) {
+  var guessMore = prompt('Try again. The number I am thinking of is more than ' + guess);
+  if (parseInt(guessMore) === randomNumber) {
+      correctGuess = true;
+  }
+} else if ( parseInt(guess) > randomNumber ) {
+   var guessLess = prompt('Try again. The number I am thinking of is less than ' + guess);
+  if (parseInt(guessLess) === randomNumber) {
+      correctGuess = true;
+  }
+}
+if ( correctGuess ) {
+    document.write('<p>You guessed the number!</p>');
+} else {
+    document.write('<p>Sorry. The number was ' + randomNumber + '.</p>');
+}
+
+
+
+*/
+
+
+    </script>
+
+  </div>
+</body>
+
+</html>
